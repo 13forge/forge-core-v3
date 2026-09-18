@@ -1,0 +1,44 @@
+[package]
+name = "forge-core-v3"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+authors = ["Sean Everertt Morin, 2748684 Alberta LTD."]
+description = "Crate Zero — the zero-dependency floor. Pexil, the trit ALU, and the layout locks."
+repository = "https://github.com/13forge/forge-core-v3"
+readme = "README.md"
+keywords = ["trit", "alu", "no-std", "hardware"]
+categories = ["no-std", "data-structures"]
+include = [
+    "src/**/*",
+    "Cargo.toml",
+    "examples/**/*",
+    "tests/**/*",
+    "README.md",
+    "LICENSE*",
+]
+
+# ZERO DEPENDENCIES was the law from ground zero. ONE exception, taken deliberately
+# (Sean 2026-08-14 "we brought bytemuck already"): bytemuck already cleared the L19
+# dep-grab bar (near-zero transitive deps, replaces unsafe-by-hand, ARCH000-blessed)
+# for 8 other v3 crates before this. It exists solely to give spine::packet::Ump its
+# Pod/Zeroable marker impls for zero-copy GPU/sieve lanes — no other capability, no
+# transitive tree of its own. Still: this is the one crack in Crate Zero. Do not
+# widen it casually.
+[dependencies]
+bytemuck = { version = "1", features = ["derive"] }
+
+# Optional, off by default — the default build stays zero-dep-by-law. Turned
+# on only by forge-consequence-v3 (2026-08-17), which needs
+# ConsequenceKind: Serialize + Deserialize for its ProceduralQuest/rule
+# types. Same "narrow, named crack" pattern as the bytemuck exception above,
+# not a general opt-in — do not widen it casually.
+serde = { version = "1", features = ["derive"], optional = true }
+
+# NEVER enabled here — declared only so sky.rs's test gate is a known cfg.
+# xtask turns it on when it mounts sky.rs by #[path], keeping the catalogue's
+# tests in their one home (L05: this crate).
+[features]
+sky-mount = []
+serde = ["dep:serde"]
+	

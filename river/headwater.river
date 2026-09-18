@@ -1,0 +1,16 @@
+# THE RIVER -- headwater. First water 2026-08-10. Origin cell (key 0) until addressed in 5D.
+# Grammar: crates/forge-core-v3/src/river.rs. Every line anchors to real disk truth.
+ALLOC	forge-hal/src/epoch_arena.rs:35	0000000000000000	EpochArena bump-pointer slab, single-pointer reset at T1 tick; zero-alloc is steady-state only.
+ZPLANE	crates/forge-canvas/src/compositor.rs:11	0000000000000000	CompositorLayer fixed 8-stack, z ascending; z=4 magic materialID plane is topmost.
+ATOM	crates/forge-core-v3/src/atom.rs:34	0000000000000000	Pexil = 8 bytes: TritCell5D lattice + Kleene validity + u16 ordinal + 4 payload; the penteract cell.
+SENTINEL	crates/forge-core-v3/src/sentinel.rs:5	0000000000000000	243..255 = the 13-state control envelope; base-3 meeting base-2 forces exactly thirteen.
+MERSENNE	crates/forge-core-v3/src/mersenne.rs:47	0000000000000000	reduce_m61 folds mod 2^61-1 by shift+add; bare M31 banned, every constant named by its exponent.
+RAMUS	crates/forge-core-v3/src/ramus_prime.rs:1	0000000000000000	RamusPrimeNode: 64-byte holon, 5D Morton key, verb trit in the Pexil, forward-only edge gate.
+AXISPIN	crates/forge-core-v3/src/ramus_prime.rs:47	0000000000000000	Axes pinned W=T chrono-tick and theta=S harmonic-rung-is-scale-rung, compiled as const locks.
+DECAY	crates/forge-core-v3/src/decay.rs:1	0000000000000000	LeakyPermyriad: per-tick floor leak, equilibrium g*PMY/leak; the scalar resolvent, proven.
+RESOLVENT	crates/forge-core-v3/src/resolvent.rs:1	0000000000000000	Field5D (I-M)f=g fixed point; deproject is the cheap inverse; conservative boundary refused on purpose.
+RIVER	crates/forge-core-v3/src/river.rs:1	0000000000000000	The corpus line grammar: TERM, path:line anchor, 5D Morton key, condensed body; refuse-first ingest.
+ATTENTION	crates/forge-hal-clockspine/src/attention.rs:17	0000000000000000	AttentionQueue: 256 events x 32 bytes = 8KiB, L2-resident; drains inside the a000 0.13ms recognition budget, tested not wished.
+TRANSDUCE	crates/forge-ml-bqrouter/src/transduce.rs:23	0000000000000000	embed_prompt: FNV-1a seed folded through reduce_m61 into a fixed 512-element i8 vector; deterministic, heap-free, zero float.
+WARDEN	crates/forge-hal-clockspine/src/tick_warden.rs:89	0000000000000000	MetronomeWarden: fire() dispatches work on tick N, collect() polls the DispatchFence on tick N+1; never blocks.
+TRIPLEBUF	crates/forge-hal-clockspine/src/triple_buffer.rs:61	0000000000000000	TripleBuffer: lock-free try_lock publish/try_take ping-pong, ClockPlane::copy_into recycles planes without allocation.
